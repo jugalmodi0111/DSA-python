@@ -1,17 +1,9 @@
-#Given an array of integers, find if the array contains any duplicates.
-#Your function should return true if any value appears at least twice in the array, and it should return false if every element is distinct.
-#Example 1:
-#Input: [1,2,3,1]
-#Output: true
-#Example 2:
-#Input: [1,2,3,4]
-#Output: false
 
 #As usual we'll get the naive approach out of the way first.
 
 def brute_force_duplicate_search(array):
-    for i in range(len(array)-1):
-        for j in range(i+1,len(array)):
+    for i in range(len(array) - 1):
+        for j in range(i+1, len(array)):
             if array[i] == array[j]:
                 return True
     return False
@@ -19,8 +11,6 @@ def brute_force_duplicate_search(array):
 array = [1,2,46,32,98,61,34,46]
 print(brute_force_duplicate_search(array))
 
-#This is pretty simple, as we go through every possible pair of elements to check if they are the same.
-#If we find a pair having the same elements we return True, else we return False
 #Time Complexity - O(n^2)
 
 #A slightly better solution can be :
@@ -30,7 +20,7 @@ print(brute_force_duplicate_search(array))
 
 def better_duplicate_search(array):
     array.sort()
-    for i in range(len(array)-1):
+    for i in range(len(array) - 1):
         if array[i] == array[i+1]:
             return True
     return False
